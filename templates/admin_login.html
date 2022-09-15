@@ -1,0 +1,61 @@
+<head>
+  <title>Login</title>
+  <style>
+    .text-field {
+      margin: auto;
+      display: block;
+      text-align: center;
+      font-size: 20px;
+      border-radius: 25px;
+      border: 2px solid #111111;
+      padding: 20px;
+      width: 200px;
+      height: 15px;
+      background-color: #aaaaaa;
+    }
+    .login {
+      font-family: Helvetica;
+      font-size: 25px;
+      border: 2px;
+      border-color: #7fdbff;
+      border-style: solid;
+      border-radius: 16px;
+      margin: auto;
+      width: 350px;
+      padding: 25px;
+      text-align: center;
+      background-color: #0074d9;
+      color: #111111;
+    }
+    .grandParentContainer {
+      display: table;
+      height: 100%;
+      margin: 0 auto;
+    }
+    .parentContainer {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="grandParentContainer">
+    <div class="parentContainer">
+      <div class="login">
+        <h1>Admin Login</h1>
+        <form id="login" method="POST" action="/admin_login">
+          <div style="font-family: Helvetica;">
+            <input class="text-field" type="text" name="uname" id="uname" placeholder="Enter Username" />
+          </div>
+          <br />
+          <div>
+            <input class="text-field" type="Password" name="pass" placeholder="Enter Password" />
+          </div><br />
+          <div>
+            <input styel="text-align:center;border-radius:12px;"type="submit" class="btn" value="Sign In">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
