@@ -40,11 +40,26 @@ def login():
 def home():
     return render_template('home.html')
 
+@app.route('/payment',methods=['POST','GET'])
+def payment():
+    return render_template('payment.html')
 
+@app.route('/account',methods=['POST','GET'])
+def account():
+    return render_template('account.html')
 
-@app.route('/home',methods=['POST','GET'])
+@app.route('/report',methods=['POST','GET'])
 def report():
-    return render_template('home.html')
+    return render_template('reports.html')
+
+@app.route('/terminal',methods=['POST','GET'])
+def terminal():
+    return render_template('terminal.html')
+
+@app.route('/message',methods=['POST','GET'])
+def message():
+    return render_template('message.html')
+
 
 
 @app.route('/logout',methods=['POST','GET'])
