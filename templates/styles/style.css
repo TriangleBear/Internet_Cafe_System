@@ -1,4 +1,4 @@
-/* REPORTS PAGE - STYLE */
+/* STYLESHEET */
 
 /* PAGE */
 
@@ -73,63 +73,27 @@
         grid-gap: 10px;
     }
 
-        .nested > div:nth-child(1) {
+        .nested > div:nth-child(n) {
             text-align: center;
             font-family: 'Archivo Black', sans-serif;
             font-size: 18px;
             color: #222831;
             line-height: 15px;
         }
-
-        .nested > div:nth-child(2) {
-            text-align: center;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 18px;
-            color: #222831;
-            line-height: 15px;
+        
+        .current {
+            background-color: #FFFF8F;
         }
-
-        .nested > div:nth-child(3) {
-            text-align: center;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 18px;
-            color: #222831;
-            line-height: 15px;
-        }
-
-        .nested > div:nth-child(4) {
-            text-align: center;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 18px;
-            color: #222831;
-            line-height: 15px;
-        }
-
-        .nested > div:nth-child(5) {
-            text-align: center;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 18px;
-            color: #222831;
-            line-height: 15px;
-        }
-
-        .nested > div:nth-child(6) {
-            background: #FFFF8F;
-            text-align: center;
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 18px;
-            color: #222831;
-            line-height: 15px;
-        }
-      
 
 
 .box3 {
     grid-column: 2;
     grid-row: 1/4;
 }
-    /* Form */
-    .form-submit {
+    /* Home */
+
+    .home {
+        border: solid 1px #333;
         width: 297px;
         height: 697px;
         padding: 11px;
@@ -139,7 +103,18 @@
         line-height: 20px;
     }
 
-    .form-input {
+    /* Reports */
+    .reports-submit {
+        width: 297px;
+        height: 697px;
+        padding: 11px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        color: #FFFFFF;
+        line-height: 20px;
+    }
+
+    .reports-input {
         border: solid 1px #393E46;
         display: block;
         margin: 11px;
