@@ -76,8 +76,14 @@
 
             <!-- Home -->
             <div class="box box3">
-                <h1 class="home">HOME PAGE</h1>
-                    <a href="{{ url_for('logout') }}">Logout</a>
+                <h1 class="home">
+                    <br />HOME PAGE
+                    <form action="log_out.php" method="post">
+                        <label>
+                            <input class="logout" type="submit" value="Log Out">
+                        </label>
+                    </form>
+                </h1>
             </div>
 
             <!-- Table -->

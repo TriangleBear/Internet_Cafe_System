@@ -76,12 +76,20 @@
 
             <!-- Form -->
             <div class="box box3">
-                <form action="/submit" class="reports-submit" method="POST">
-                    <h1>&nbsp;DATE REPORT</h1>
-                    <input class="reports-input" type="text" name="from" placeholder="&nbsp;From:">
-                    <input class="reports-input" type="text" name="to" placeholder="&nbsp;To:">
-                    <input class="reports-input" type="submit" value="Save File">
-                </form>
+                <h1 class="reports-submit">
+                    <br />DATE REPORT<br />
+                    <form action="/submit" method="POST">
+                        <label>
+                            <input class="reports-input" type="text" name="from" placeholder="&nbsp;From:">
+                        </label>
+                        <label>
+                            <input class="reports-input" type="text" name="to" placeholder="&nbsp;To:">
+                        </label>
+                        <label>
+                            <input class="save-file" type="submit" value="Save File">
+                        </label>
+                    </form>
+                </h1>
             </div>
 
             <!-- Table -->

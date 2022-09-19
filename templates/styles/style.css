@@ -84,6 +84,27 @@
         .current {
             background-color: #FFFF8F;
         }
+        /*STYLING LINKS*/
+        a:link {
+            color: #222831;
+            text-decoration: none
+        }
+
+        a:visited {
+            color: #222831;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #222831;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #222831;
+            text-decoration: none;
+        }
+
 
 
 .box3 {
@@ -91,34 +112,54 @@
     grid-row: 1/4;
 }
     /* Home */
-
     .home {
-        border: solid 1px #333;
-        width: 297px;
-        height: 697px;
-        padding: 11px;
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 20px;
+        width: 280px;
+        height: 678px;
         font-family: 'Roboto', sans-serif;
-        font-size: 15px;
+        font-size: 90px;
         color: #FFFFFF;
-        line-height: 20px;
+        line-height: 90px;
     }
+    .logout{ 
+        margin: auto;
+        width: 100px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+     }
 
     /* Reports */
     .reports-submit {
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 10px;
         width: 297px;
         height: 697px;
-        padding: 11px;
         font-family: 'Roboto', sans-serif;
-        font-size: 15px;
+        font-size: 50px;
         color: #FFFFFF;
-        line-height: 20px;
+        line-height: 50px;
     }
 
     .reports-input {
-        border: solid 1px #393E46;
         display: block;
-        margin: 11px;
-        width: 270px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    .save-file {
+        margin: relative;
+        width: 100px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         color: #222831;
@@ -161,29 +202,4 @@
         tr:nth-child(1+2n) {
             background-color: #EEEEEE;
         }
-
-
-
-/*STYLING LINKS*/
-
-a:link {
-    color: #222831;
-    text-decoration: none
-}
-
-a:visited {
-    color: #222831;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #222831;
-    text-decoration: underline;
-}
-
-a:active {
-    color: #222831;
-    text-decoration: none;
-}
-
 
