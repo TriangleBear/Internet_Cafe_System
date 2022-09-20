@@ -192,7 +192,7 @@
         line-height: 20px;
     }
 
-    .terminal-save {
+    .terminal-actions {
         margin: relative;
         width: 100px;
         font-family: 'Roboto', sans-serif;
@@ -346,7 +346,7 @@
             padding: 20px;
             grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: auto;
-            grid-gap: 80px;
+            grid-gap: 50px;
         }
     
             .system-unit > div:nth-child(n) {
@@ -363,6 +363,17 @@
             }
 
             .system-unit img:hover {
-                    filter: alpha(opacity=70);
-                    opacity: .7;
+                filter: alpha(opacity=70);
+                opacity: .7;
+            }
+
+            .system-unit h1{
+                display: block;
+                position: relative;   
+                font-size: 20px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-left: -20px;
+                margin-right: 0px;
+                font-weight: bold;
             }
