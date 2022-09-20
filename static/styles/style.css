@@ -85,22 +85,22 @@
             background-color: #FFFF8F;
         }
         /*STYLING LINKS*/
-        a:link {
+        .nested a:link {
             color: #222831;
             text-decoration: none
         }
 
-        a:visited {
+        .nested a:visited {
             color: #222831;
             text-decoration: none;
         }
 
-        a:hover {
+        .nested a:hover {
             color: #222831;
             text-decoration: underline;
         }
 
-        a:active {
+        .nested a:active {
             color: #222831;
             text-decoration: none;
         }
@@ -358,7 +358,7 @@
                 background-color: #FFFF8F;
             }
 
-            img:hover {
-                filter: alpha(opacity=70);
-                opacity: .7;
+            .system-unit img:hover {
+                    filter: alpha(opacity=70);
+                    opacity: .7;
             }
