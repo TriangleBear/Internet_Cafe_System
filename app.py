@@ -20,11 +20,11 @@ def index():
 @app.route('/login',methods=['POST','GET'])
 def login():
     status=True
+    cur=mysql.connection.cursor()
     if request.method=='POST':
         username=request.form['username']
         password=request.form['password']
         user_type='admin'
-        cur=mysql.connection.cursor()
         cur.execute("select * from user where username=%s and password=%s and user_type=%s",(username,password,user_type))
         data=cur.fetchone()
         if data:
@@ -36,15 +36,15 @@ def login():
         else:
             print('username, password or user type invalid')
     cur.close()
-    return render_template("login.html")
+    return render_template("/Login/login.html")
 
 @app.route('/home',methods=['POST','GET'])
 def home():
-    return render_template('home.html')
+    return render_template('/Home/home.html')
 
 @app.route('/payment',methods=['POST','GET'])
 def payment():
-    return render_template('payment.html')
+    return render_template('/Payment/payment.html')
 
 @app.route('/account',methods=['POST','GET'])
 def account():
@@ -59,19 +59,19 @@ def account():
     ucp = cur.fetchall()
     print(ucp)
     cur.close()
-    return render_template('account.html', user = ucp)
+    return render_template('/Account/account.html', user = ucp)
 
 @app.route('/report',methods=['POST','GET'])
 def report():
-    return render_template('reports.html')
+    return render_template('/Reports/reports.html')
 
 @app.route('/terminal',methods=['POST','GET'])
 def terminal():
-    return render_template('terminal.html')
+    return render_template('/Terminal/terminal.html')
 
 @app.route('/message',methods=['POST','GET'])
 def message():
-    return render_template('message.html')
+    return render_template('/Message/message.html')
 
 
 
