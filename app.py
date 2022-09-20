@@ -31,9 +31,11 @@ def login():
             session['logged_in']=True
             session['username']=data[1]
             print('Login Successful!')
+            mysql.connection.close()
             return redirect('home')
         else:
             print('username, password or user type invalid')
+    cur.close()
     return render_template("login.html")
 
 @app.route('/home',methods=['POST','GET'])
@@ -46,7 +48,18 @@ def payment():
 
 @app.route('/account',methods=['POST','GET'])
 def account():
-    return render_template('account.html')
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('account.html', user = ucp)
 
 @app.route('/report',methods=['POST','GET'])
 def report():
