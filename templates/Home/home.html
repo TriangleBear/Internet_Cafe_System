@@ -77,14 +77,20 @@
 
             <!-- Home -->
             <div class="box box3">
-                <h1 class="home">   
-                    <br />HOME PAGE
+                <div class="home">   
+                    <h1>HOME PAGE</h1>
                     <form method="post" action="{{url_for('logout')}}">
+                        <label>
+                            <input class="logout" type="submit" value="Change Account">
+                        </label>
                         <label>
                             <input class="logout" type="submit" value="Log Out">
                         </label>
+                        <label>
+                            <input class="logout" type="submit" value="Exit System">
+                        </label>
                     </form>
-                </h1>
+                </div>
             </div>
 
             <!-- Table -->

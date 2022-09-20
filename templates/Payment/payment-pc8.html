@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/static/styles/style.css">
+        <link rel="stylesheet" href="../../static/styles/style.css">
     </head>
 
 
@@ -28,46 +28,48 @@
             <!-- Modules -->
             <div class="box box1">
                 <div class="nested">
-                    <!-- This is the Current Page -->
+                    
                     <div >
                         <br />
-                        <img src="/static/images/home.png" width=15 length=15 />
-                        <a href="{{ url_for('home') }}">
+                        <img src="../../static/images/home.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Home/home.html">
                         Home
                         </a>
                     </div>
-                    <div >
+                    <div>
                         <br />
-                        <img src="/static/images/account.png" width=15 length=15 />
-                        <a href="{{ url_for('account') }}">
+                        <img src="../../static/images/account.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/account.html">
                         Account
                         </a>
                     </div>
                     <div>
                         <br />
-                        <img src="/static/images/terminal.png" width=15 length=15 />
-                        <a href="{{ url_for('terminal') }}">
+                        <img src="../../static/images/terminal.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Terminal/terminal.html">
                         Terminal
                         </a>
                     </div>
+                    <!-- This is the Highlighted Page -->
                     <div class="current">
                         <br />
-                        <img src="/static/images/payment.png" width=15 length=15 />
-                        <a href="{{ url_for('payment') }}">
+                        <img src="../../static/images/payment.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Payment/payment.html">
                         Payment
+                        </a>
+                    </div>
+                    <!---->
+                    <div>
+                        <br />
+                        <img src="../../static/images/message.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Message/message.html">
+                        Message
                         </a>
                     </div>
                     <div>
                         <br />
-                        <img src="/static/images/message.png" width=15 length=15 />
-                        <a href="{{ url_for('message') }}">
-                        Message
-                        </a>
-                    </div>
-                    <div >
-                        <br />
-                        <img src="/static/images/reports.png" width=15 length=15 />
-                        <a href="{{ url_for('report') }}">
+                        <img src="../../static/images/reports.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Reports/reports.html">
                         Reports
                         </a>
                     </div>
@@ -79,6 +81,36 @@
             <div class="box box3">
                 <div class="payment-submit">
                     <h1>PAYMENT</h1>
+                    <form action="/submit" method="POST">
+                        <h2>PC 8</h2>
+                        <label>
+                            <input class="terminal-input" type="text" name="account" placeholder="&nbsp;Account:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="balance" placeholder="&nbsp;Bill ID:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="balance" placeholder="&nbsp;Balance:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="time-in" placeholder="&nbsp;Time IN:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="time-out" placeholder="&nbsp;Time OUT:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="duration" placeholder="&nbsp;Duration:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="total" placeholder="&nbsp;Rate:">
+                        </label>
+                        </label>
+                            <input class="terminal-input" type="text" name="total" placeholder="&nbsp;Total:">
+                        </label>
+                        <label>
+                            <input class="payment-save" type="submit" value="Save File">
+                        </label>
+                    </form>
                 </div>
             </div>
 
@@ -127,12 +159,13 @@
                         </a>
                         <h1>PC 7</h1>
                     </div>
+                    <!-- This is the Highlighted System Unit -->
                     <div>
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Payment/payment-pc8.html">
-                        <img src="../../static/images/desktop.png" width=150 length=150 />
+                        <img src="../../static/images/current-desktop.png" width=150 length=150 />
                         </a>
                         <h1>PC 8</h1>
                     </div>
+                    <!-- -->
                     <div>
                         <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Payment/payment-pc9.html">
                         <img src="../../static/images/desktop.png" width=150 length=150 />
