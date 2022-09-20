@@ -137,7 +137,7 @@
         border: #222831 1px solid;
         margin: auto;
         padding: 10px;
-        width: 297px;
+        width: 300px;
         height: 697px;
         font-family: 'Roboto', sans-serif;
         font-size: 50px;
@@ -157,7 +157,7 @@
         line-height: 20px;
     }
 
-    .save-file {
+    .reports-save {
         margin: relative;
         width: 100px;
         font-family: 'Roboto', sans-serif;
@@ -166,7 +166,141 @@
         line-height: 20px;
     }
 
+    /* Account */
+    .account-submit {
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 10px;
+        width: 300px;
+        height: 697px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 50px;
+        color: #FFFFFF;
+        line-height: 50px;
+    }
 
+    .account-input {
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    .account-save {
+        margin: relative;
+        width: 100px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    /* Terminal */
+    .terminal-submit {
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 10px;
+        width: 300px;
+        height: 697px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 50px;
+        color: #FFFFFF;
+        line-height: 50px;
+    }
+
+    .terminal-input {
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    .terminal-save {
+        margin: relative;
+        width: 100px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    /* Payment */
+    .payment-submit {
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 10px;
+        width: 300px;
+        height: 697px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 50px;
+        color: #FFFFFF;
+        line-height: 50px;
+    }
+
+    .payment-input {
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    .payment-save {
+        margin: relative;
+        width: 100px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    /* Message */
+    .message-submit {
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 10px;
+        width: 300px;
+        height: 697px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 50px;
+        color: #FFFFFF;
+        line-height: 50px;
+    }
+
+    .message-input {
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+    .message-save {
+        margin: relative;
+        width: 100px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
 
 .box2 {
     grid-column: 1;
