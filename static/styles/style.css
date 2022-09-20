@@ -118,11 +118,12 @@
         padding: 20px;
         width: 280px;
         height: 678px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 90px;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 80px;
         color: #FFFFFF;
-        line-height: 90px;
+        line-height: 70px;
     }
+
     .logout{ 
         margin: auto;
         width: 100px;
@@ -132,40 +133,6 @@
         line-height: 20px;
      }
 
-    /* Reports */
-    .reports-submit {
-        border: #222831 1px solid;
-        margin: auto;
-        padding: 10px;
-        width: 300px;
-        height: 697px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 50px;
-        color: #FFFFFF;
-        line-height: 50px;
-    }
-
-    .reports-input {
-        display: block;
-        margin: auto;
-        margin-top: 30px;
-        margin-bottom: 20px;
-        width: 250px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        color: #222831;
-        line-height: 20px;
-    }
-
-    .reports-save {
-        margin: relative;
-        width: 100px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        color: #222831;
-        line-height: 20px;
-    }
-
     /* Account */
     .account-submit {
         border: #222831 1px solid;
@@ -173,7 +140,7 @@
         padding: 10px;
         width: 300px;
         height: 697px;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Archivo Black', sans-serif;
         font-size: 50px;
         color: #FFFFFF;
         line-height: 50px;
@@ -199,7 +166,7 @@
         color: #222831;
         line-height: 20px;
     }
-
+    
     /* Terminal */
     .terminal-submit {
         border: #222831 1px solid;
@@ -207,7 +174,7 @@
         padding: 10px;
         width: 300px;
         height: 697px;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Archivo Black', sans-serif;
         font-size: 50px;
         color: #FFFFFF;
         line-height: 50px;
@@ -241,7 +208,7 @@
         padding: 10px;
         width: 300px;
         height: 697px;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Archivo Black', sans-serif;
         font-size: 50px;
         color: #FFFFFF;
         line-height: 50px;
@@ -275,7 +242,7 @@
         padding: 10px;
         width: 300px;
         height: 697px;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Archivo Black', sans-serif;
         font-size: 50px;
         color: #FFFFFF;
         line-height: 50px;
@@ -302,6 +269,42 @@
         line-height: 20px;
     }
 
+    /* Reports */
+    .reports-submit {
+        border: #222831 1px solid;
+        margin: auto;
+        padding: 10px;
+        width: 300px;
+        height: 697px;
+        font-family: 'Archivo Black', sans-serif;
+        font-size: 50px;
+        color: #FFFFFF;
+        line-height: 50px;
+    }
+    
+    .reports-input {
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        width: 250px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+    
+    .reports-save {
+        margin: relative;
+        width: 100px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 20px;
+    }
+
+
+    
 .box2 {
     grid-column: 1;
     grid-row: 2;
@@ -337,6 +340,7 @@
             background-color: #EEEEEE;
         }
 
+        /* System Unit */
         .system-unit {
             display: grid;
             padding: 20px;
