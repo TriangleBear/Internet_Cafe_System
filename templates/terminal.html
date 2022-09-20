@@ -95,28 +95,9 @@
                 </h1>
             </div>
 
-            <!-- Table -->
+            <!-- System Units -->
             <div class="box box2">
-                <table class="table">
-                    <tr>
-                        <th>PC</th>
-                        <th>Account</th>
-                        <th>Start Time</th>
-                        <th>Duration</th>
-                        <th>Total</th>
-                    </tr>
 
-                    &nbsp;&nbsp;
-                    {%for data in records%}
-                    <tr>
-                        <td>{{data['pc']}}</td>
-                        <td>{{data['account']}}</td>
-                        <td>{{data['start_time']}}</td>
-                        <td>{{data['duration']}}</td>
-                        <td>{{data['total']}}</td>
-                    </tr>
-                    {%endfor%}
-                </table>
             </div>
 
         </div>
