@@ -28,48 +28,46 @@
             <!-- Modules -->
             <div class="box box1">
                 <div class="nested">
-                    
-                    <!-- This is the Highlighted Page -->
-                    <div class="current">
+                    <!-- This is the Current Page -->
+                    <div >
                         <br />
                         <img src="/static/images/home.png" width=15 length=15 />
-                        <a href="Home/home.html">
+                        <a href="{{ url_for('home') }}">
                         Home
                         </a>
                     </div>
-                    <!---->
                     <div>
                         <br />
                         <img src="/static/images/account.png" width=15 length=15 />
-                        <a href="Account/account.html">
+                        <a href="{{ url_for('account') }}">
                         Account
                         </a>
                     </div>
                     <div>
                         <br />
                         <img src="/static/images/terminal.png" width=15 length=15 />
-                        <a href="Terminal/terminal.html">
+                        <a href="{{ url_for('terminal') }}">
                         Terminal
                         </a>
                     </div>
                     <div>
                         <br />
                         <img src="/static/images/payment.png" width=15 length=15 />
-                        <a href="Payment/payment.html">
+                        <a href="{{ url_for('payment') }}">
                         Payment
                         </a>
                     </div>
-                    <div>
+                    <div class="current">
                         <br />
                         <img src="/static/images/message.png" width=15 length=15 />
-                        <a href="Message/message.html">
+                        <a href="{{ url_for('message') }}">
                         Message
                         </a>
                     </div>
                     <div>
                         <br />
                         <img src="/static/images/reports.png" width=15 length=15 />
-                        <a href="Reports/reports.html">
+                        <a href="{{ url_for('report') }}">
                         Reports
                         </a>
                     </div>
