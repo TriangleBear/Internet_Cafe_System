@@ -7,7 +7,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.py
 .Python
 build/
 develop-eggs/
@@ -153,6 +152,4 @@ cython_debug/
 #.idea/
 
 ICS/
-encryptPass.py
-app.py
 *.db
