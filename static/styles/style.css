@@ -180,11 +180,19 @@
         line-height: 50px;
     }
 
+    .terminal-submit h2{
+        display: block;
+        margin: auto;
+        margin-right: 205px;
+        margin-top: -10px;
+        font-size: 30px;
+        text-align: center;
+    }
+
     .terminal-input {
         display: block;
         margin: auto;
-        margin-top: 30px;
-        margin-bottom: 20px;
+        margin-top: 10px;
         width: 250px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
@@ -193,12 +201,14 @@
     }
 
     .terminal-actions {
-        margin: relative;
-        width: 100px;
+        display: block;
+        margin-top: 10px;
+        margin-right: 500px;
+        width: 200px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         color: #222831;
-        line-height: 20px;
+        line-height: 10px;
     }
 
     /* Payment */

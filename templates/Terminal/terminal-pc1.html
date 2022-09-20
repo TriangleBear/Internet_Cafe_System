@@ -82,14 +82,41 @@
                 <h1 class="terminal-submit">
                     <br />TERMINAL
                     <form action="/submit" method="POST">
+                        <h2>PC 1</h2>
                         <label>
-                            <input class="terminal-input" type="text" name="from" placeholder="&nbsp;From:">
+                            <input class="terminal-input" type="text" name="account" placeholder="&nbsp;Account:">
                         </label>
                         <label>
-                            <input class="terminal-input" type="text" name="to" placeholder="&nbsp;To:">
+                            <input class="terminal-input" type="text" name="balance" placeholder="&nbsp;Balance:">
                         </label>
                         <label>
-                            <input class="terminal-actions" type="submit" value="Save File">
+                            <input class="terminal-input" type="text" name="time-in" placeholder="&nbsp;Time IN:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="time-out" placeholder="&nbsp;Time OUT:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="duration" placeholder="&nbsp;Duration:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="total" placeholder="&nbsp;Total:">
+                        </label>
+                        <br />
+                        <h2>&nbsp;ACTIONS</h2>
+                        </label>
+                            <input class="terminal-actions" type="submit" value="Start User Session">
+                        </label>
+                        </label>
+                            <input class="terminal-actions" type="submit" value="End User Session">
+                        </label>
+                        </label>
+                            <input class="terminal-actions" type="submit" value="Sign Out">
+                        </label>
+                        </label>
+                            <input class="terminal-actions" type="submit" value="Restart">
+                        </label>
+                        </label>
+                            <input class="terminal-actions" type="submit" value="Shut Down">
                         </label>
                     </form>
                 </h1>
