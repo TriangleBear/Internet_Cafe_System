@@ -81,9 +81,33 @@
             <div class="box box3">
                 <div class="terminal-submit">
                     <h1>TERMINAL</h1>
-                    <form action="/submit" method="POST">
-                        <h2>PC 1</h2>
+                    <h2>PC 1</h2>
 
+                    <form action="/submit" method="POST">
+                        
+                        <label>
+                            <input class="terminal-input" type="text" name="contact" placeholder="&nbsp;Contact ID:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="user" placeholder="&nbsp;User ID:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="name" placeholder="&nbsp;Name:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="address" placeholder="&nbsp;Address:">
+                        </label>
+                        <label>
+                            <input class="terminal-input" type="text" name="balance" placeholder="&nbsp;Balance:">
+                        </label>  
+
+                        <br />
                         <h2>&nbsp;ACTIONS</h2>
                         </label>
                             <input class="terminal-actions" type="submit" value="Start User Session">
@@ -100,7 +124,9 @@
                         </label>
                             <input class="terminal-actions" type="submit" value="Shut Down">
                         </label>
+
                     </form>
+
                 </div>
             </div>
 
@@ -122,6 +148,7 @@
                     <div>
                         <a href="{{url_for('terminal3')}}">
                         <img src="/static/images/desktop.png" width=150 length=150 />
+
                         </a>
                         <h1>PC 3</h1>
                     </div>
@@ -134,6 +161,7 @@
                     <div>
                         <a href="{{url_for('terminal5')}}">
                         <img src="/static/images/desktop.png" width=150 length=150 />
+
                         </a>
                         <h1>PC 5</h1>
                     </div>
@@ -164,12 +192,13 @@
                     <div>
                         <a href="{{url_for('terminal10')}}">
                         <img src="/static/images/desktop.png" width=150 length=150 />
+
                         </a>
                         <h1>PC 10</h1>
                     </div>
                     <div>
                         <a href="{{url_for('terminal11')}}">
-                        <img src="/static/images/desktop.png" width=150 length=150 />
+                        <img src="/static/images/desktop.png" width=150 length=150 />n-fork
                         </a>
                         <h1>PC 11</h1>
                     </div>

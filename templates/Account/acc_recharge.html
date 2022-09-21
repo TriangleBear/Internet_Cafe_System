@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="static/styles/style.css">
+        <link rel="stylesheet" href="../../static/styles/style.css">
     </head>
 
 <!-- TITLE -->
@@ -27,47 +27,47 @@
             <!-- Modules -->
             <div class="box box1">
                 <div class="nested">
-                    <!-- This is the Current Page -->
                     <div >
                         <br />
-                        <img src="/static/images/home.png" width=15 length=15 />
-                        <a href="{{ url_for('home') }}">
+                        <img src="../../static/images/home.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Home/home.html">
                         Home
                         </a>
                     </div>
+                    <!-- This is the Highlighted Page -->
                     <div class="current">
                         <br />
-                        <img src="/static/images/account.png" width=15 length=15 />
-                        <a href="{{ url_for('account') }}">
+                        <img src="../../static/images/account.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/account.html">
                         Account
                         </a>
                     </div>
                     <!-- -->
                     <div>
                         <br />
-                        <img src="/static/images/terminal.png" width=15 length=15 />
-                        <a href="{{ url_for('terminal') }}">
+                        <img src="../../static/images/terminal.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Terminal/terminal.html">
                         Terminal
                         </a>
                     </div>
                     <div>
                         <br />
-                        <img src="/static/images/payment.png" width=15 length=15 />
-                        <a href="{{ url_for('payment') }}">
+                        <img src="../../static/images/payment.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Payment/payment.html">
                         Payment
                         </a>
                     </div>
                     <div>
                         <br />
-                        <img src="/static/images/message.png" width=15 length=15 />
-                        <a href="{{ url_for('message') }}">
+                        <img src="../../static/images/message.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Message/message.html">
                         Message
                         </a>
                     </div>
                     <div>
                         <br />
-                        <img src="/static/images/reports.png" width=15 length=15 />
-                        <a href="{{ url_for('report') }}">
+                        <img src="../../static/images/reports.png" width=15 length=15 />
+                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Reports/reports.html">
                         Reports
                         </a>
                     </div>
@@ -79,8 +79,38 @@
             <div class="box box3">    
 
                 <div class="account-submit">
-                    <h1>ACCOUNT MANAGER</h1>
-
+                    <h1>ACCOUNT RECHARGE</h1>
+                    <form action="/submit" method="POST">
+                        <label>
+                            <input class="account-input" type="text" name="contact" placeholder="&nbsp;Contact ID:">
+                        </label>
+                        <label>
+                            <input class="account-input" type="text" name="user" placeholder="&nbsp;User ID:">
+                        </label>
+                        <label>
+                            <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
+                        </label>
+                        <label>
+                            <input class="account-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
+                        </label>
+                        <label>
+                            <input class="account-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
+                        </label>
+                        <label>
+                            <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
+                        </label>
+                        <label>
+                            <input class="account-input" type="text" name="balance" placeholder="&nbsp;Balance:">
+                        </label>
+                        <br />
+                        <label>
+                            <input class="account-input" type="text" name="recharge" placeholder="&nbsp;Recharge Amount:">
+                        </label>
+                        <label>
+                            <input class="account-confirm" type="submit" value="Recharge">
+                        </label>
+                        
+                    </form>
                 </div>
             </div>
 
@@ -100,6 +130,7 @@
                         Edit Account
                         </a>
                     </div>
+                    
                     <div>
                         <br />
                         <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_disable.html">
@@ -112,12 +143,14 @@
                         Account History
                         </a>
                     </div>
-                    <div>
+                    <!-- This is the Highlighted Page -->
+                    <div class="accountcurrent">
                         <br />
                         <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_recharge.html">
                         Account Recharge
                         </a>
                     </div>
+                    <!-- -->
                 </div>
 
                 <table class="table">
