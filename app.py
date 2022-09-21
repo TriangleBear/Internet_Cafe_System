@@ -66,15 +66,15 @@ def report():
     cur = mysql.connection.cursor()
     cur.execute("""
                 SELECT * FROM user
-                INNER JOIN contact
-                ON user.user_id = contact.user_id
                 INNER JOIN payment
                 ON user.user_id = payment.user_id
+                INNER JOIN timeslot
+                ON user.user_id = timeslot.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
     cur.close()
-    return render_template('/Reports/reports.html')
+    return render_template('/Reports/reports.html', user=ucp)
 
 
 
