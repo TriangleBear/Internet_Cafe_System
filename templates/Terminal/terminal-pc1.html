@@ -81,38 +81,38 @@
             <div class="box box3">
                 <div class="terminal-submit">
                     <h1>TERMINAL</h1>
-                    <form action="/submit" method="POST">
+                    <form action="/submit-terminal" method="POST">
                         <h2>PC 1</h2>
                         
                         <table class="details">
-
-                            <h3>{%for data in records%}</h3>
+                            &nbsp;&nbsp;        
+                            {%for data in terminaltime%}
                             <tr>
                                 <th>User Account:</th>
-                                <td>{{data['useracc']}}</td>
+                                <td>{{data[1]}}</td>
                             </tr>
                             <tr>
                                 <th>Balance:</th>
-                                <td>{{data['balance']}}</td>
+                                <td>{{data[12]}}</td>
                             </tr>
                             <tr>
                                 <th>Time IN:</th>
-                                <td>{{data['timein']}}</td>
+                                <td>{{data[19]}}</td>
                             </tr>
                             <tr>
                                 <th>Time OUT:</th>
-                                <td>{{data['timeout']}}</td>
+                                <td>{{data[20]}}</td>
                             </tr>
                             <tr>
                                 <th>Duration:</th>
-                                <td>{{data['duration']}}</td>
+                                <td>{{data[18]}}</td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
                                 <td>{{data['total']}}</td>
                             </tr>
-                            <h3><br />{%endfor%}</h3>
-    
+                            {%endfor%}
+
                         </table>
 
                         <h2>&nbsp;ACTIONS</h2>
