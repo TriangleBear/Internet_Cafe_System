@@ -77,8 +77,9 @@ def new_account():
                 ON user.user_id = payment.user_id
                 """)
     ucp = cur.fetchall()
-    print(ucp)
     cur.close()
+    msg = ''
+    
     return render_template('/Account/acc_new.html', user = ucp)
 
 @app.route('/edit-account',methods=['POST','GET'])
@@ -111,6 +112,21 @@ def recharge_account():
     cur.close()
     return render_template('/Account/acc_recharge.html', user = ucp)
 
+@app.route('/submit-recharge',methods=['POST','GET'])
+def recharge_account_submit():
+    cur=mysql.connection.cursor()
+    if request.method =='POST':
+        username=request.form['username']
+        rechargeAm=request.form['balance']
+        cur.execute("""
+                    SELECT SUM(balance + %i) 
+                    FROM payment
+                    GROUP BY user_id
+                    """,(rechargeAM))
+        ucp = cur.fetchall()
+        return render_template('/Account/acc_recharge.html', user = ucp)
+
+
 @app.route('/history-account',methods=['POST','GET'])
 def history_account():
     cur = mysql.connection.cursor()
@@ -120,6 +136,8 @@ def history_account():
                 ON user.user_id = contact.user_id
                 INNER JOIN payment
                 ON user.user_id = payment.user_id
+                INNER JOIN timeslot
+                ON user.user_id = timeslot.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
