@@ -117,23 +117,51 @@ def report():
     cur = mysql.connection.cursor()
     cur.execute("""
                 SELECT * FROM user
-                INNER JOIN contact
-                ON user.user_id = contact.user_id
                 INNER JOIN payment
                 ON user.user_id = payment.user_id
+                INNER JOIN timeslot
+                ON user.user_id = timeslot.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
     cur.close()
-    return render_template('/Reports/reports.html')
+    return render_template('/Reports/reports.html', user=ucp)
 
 
-
+@app.route('/submit-report',methods=['POST','GET'])
+def submit_report():
+    fromData=request.form['from']
+    toData=request.form['to']
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM timeslot
+                WHERE tmslt_in=%s AND
+                tmslt_out=%s
+                """,(fromData,toData))
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Reports/reports.html', user=ucp)
 
 
 @app.route('/terminal',methods=['POST','GET'])
 def terminal():
     return render_template('/Terminal/terminal.html')
+
+@app.route('/submit-terminal',methods=['POST','GET'])
+def submit_terminal():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                INNER JOIN timeslot
+                ON user.user_id = timeslot.user_id
+                """)
+    terminaltime = cur.fetchall()
+    print(terminaltime)
+    cur.close()
+    return render_template('/Terminal/terminal-pc1.html', user =terminaltime)
 
 @app.route('/terminal1',methods=['POST','GET'])
 def terminal1():
