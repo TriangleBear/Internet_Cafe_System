@@ -77,7 +77,20 @@ def report():
     return render_template('/Reports/reports.html', user=ucp)
 
 
-
+@app.route('/submit-report',methods=['POST','GET'])
+def submit_report():
+    fromData=request.form['from']
+    toData=request.form['to']
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM timeslot
+                WHERE tmslt_in=%s AND
+                tmslt_out=%s
+                """,(fromData,toData))
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Reports/reports.html', user=ucp)
 
 
 @app.route('/terminal',methods=['POST','GET'])
