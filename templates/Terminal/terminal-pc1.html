@@ -85,34 +85,39 @@
                         <h2>PC 1</h2>
                         
                         <table class="details">
-                            &nbsp;&nbsp;        
-                            {%for data in terminaltime%}
+
                             <tr>
                                 <th>User Account:</th>
-                                <td>{{data[1]}}</td>
-                            </tr>
-                            <tr>
                                 <th>Balance:</th>
-                                <td>{{data[12]}}</td>
-                            </tr>
-                            <tr>
                                 <th>Time IN:</th>
-                                <td>{{data[19]}}</td>
-                            </tr>
-                            <tr>
                                 <th>Time OUT:</th>
-                                <td>{{data[20]}}</td>
-                            </tr>
-                            <tr>
                                 <th>Duration:</th>
-                                <td>{{data[18]}}</td>
-                            </tr>
-                            <tr>
                                 <th>Total:</th>
+                            </tr>
+
+
+                            {%for data in terminaltime%}
+                            <tr>
+                                
+                                <td>{{data[1]}}</td>
+                           
+                           
+                                <td>{{data[12]}}</td>
+                            
+                           
+                                <td>{{data[19]}}</td>
+
+                            
+                                <td>{{data[20]}}</td>
+
+                            
+                                <td>{{data[18]}}</td>
+
+                         
                                 <td>{{data['total']}}</td>
                             </tr>
                             {%endfor%}
-
+    
                         </table>
 
                         <h2>&nbsp;ACTIONS</h2>
