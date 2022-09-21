@@ -304,6 +304,15 @@
         text-align: center;
     }
 
+    .message-submit h2{
+        display: block;
+        margin: auto;
+        margin-top: -20px;
+        margin-left: 21px;
+        font-size: 30px;
+        text-align: left;
+    }
+
     .message-recipient {
         display: block;
         margin: auto;
@@ -319,18 +328,19 @@
         display: block;
         margin: auto;
         margin-top: 10px;
-        width: 250px;
+        padding: 10px;
+        width: 237px;
         height: 400px;       
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         color: #222831;
-        line-height: 100px;
+        line-height: 20px;
     }
 
     .message-save {
         display: inside;
         margin: auto;
-        margin-top: 5px;
+        margin-top: 0px;
         margin-left: 179px;
         width: 100px;
         font-family: 'Roboto', sans-serif;
