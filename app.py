@@ -84,6 +84,21 @@ def report():
 def terminal():
     return render_template('/Terminal/terminal.html')
 
+@app.route('/submit-terminal',methods=['POST','GET'])
+def submit_terminal():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                INNER JOIN timeslot
+                ON user.user_id = timeslot.user_id
+                """)
+    terminaltime = cur.fetchall()
+    print(terminaltime)
+    cur.close()
+    return render_template('/Terminal/terminal-pc1.html', user =terminaltime)
+
 @app.route('/terminal1',methods=['POST','GET'])
 def terminal1():
     return render_template('/Terminal/terminal-pc1.html')
