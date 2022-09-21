@@ -67,6 +67,54 @@ def report():
 
 @app.route('/terminal',methods=['POST','GET'])
 def terminal():
+    return render_template('/Terminal/terminal-pc1.html')
+
+@app.route('/terminal1',methods=['POST','GET'])
+def terminal1():
+    return render_template('/Terminal/terminal-pc2.html')
+
+@app.route('/terminal2',methods=['POST','GET'])
+def terminal2():
+    return render_template('/Terminal/terminal-pc3.html')
+
+@app.route('/terminal3',methods=['POST','GET'])
+def terminal3():
+    return render_template('/Terminal/terminal-pc4.html')
+
+@app.route('/terminal4',methods=['POST','GET'])
+def terminal4():
+    return render_template('/Terminal/terminal-pc5.html')
+
+@app.route('/terminal5',methods=['POST','GET'])
+def terminal5():
+    return render_template('/Terminal/terminal-pc6.html')
+
+@app.route('/terminal6',methods=['POST','GET'])
+def terminal6():
+    return render_template('/Terminal/terminal-pc7.html')
+
+@app.route('/terminal7',methods=['POST','GET'])
+def terminal7():
+    return render_template('/Terminal/terminal-pc8.html')
+
+@app.route('/terminal8',methods=['POST','GET'])
+def terminal8():
+    return render_template('/Terminal/terminal-pc9.html')
+
+@app.route('/terminal9',methods=['POST','GET'])
+def terminal9():
+    return render_template('/Terminal/terminal-pc10.html')
+
+@app.route('/terminal10',methods=['POST','GET'])
+def terminal10():
+    return render_template('/Terminal/terminal-pc11.html')
+
+@app.route('/terminal11',methods=['POST','GET'])
+def terminal11():
+    return render_template('/Terminal/terminal-pc12.html')
+
+@app.route('/terminal12',methods=['POST','GET'])
+def terminal12():
     return render_template('/Terminal/terminal.html')
 
 @app.route('/message',methods=['POST','GET'])
