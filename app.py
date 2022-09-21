@@ -46,6 +46,57 @@ def home():
 def payment():
     return render_template('/Payment/payment.html')
 
+@app.route('/payment-1',methods=['POST','GET'])
+def payment1():
+    return render_template('/Payment/payment-pc1.html')
+
+@app.route('/payment-2',methods=['POST','GET'])
+def payment2():
+    return render_template('/Payment/payment-pc2.html')
+
+@app.route('/payment-3',methods=['POST','GET'])
+def payment3():
+    return render_template('/Payment/payment-pc3.html')
+
+@app.route('/payment-4',methods=['POST','GET'])
+def payment4():
+    return render_template('/Payment/payment-pc4.html')
+
+@app.route('/payment-5',methods=['POST','GET'])
+def payment5():
+    return render_template('/Payment/payment-pc5.html')
+
+@app.route('/payment-6',methods=['POST','GET'])
+def payment6():
+    return render_template('/Payment/payment-pc6.html')
+
+@app.route('/payment-7',methods=['POST','GET'])
+def payment7():
+    return render_template('/Payment/payment-pc7.html')
+
+@app.route('/payment-8',methods=['POST','GET'])
+def payment8():
+    return render_template('/Payment/payment-pc8.html')
+
+@app.route('/payment-9',methods=['POST','GET'])
+def payment9():
+    return render_template('/Payment/payment-pc9.html')
+
+@app.route('/payment-10',methods=['POST','GET'])
+def payment10():
+    return render_template('/Payment/payment-pc10.html')
+
+@app.route('/payment-11',methods=['POST','GET'])
+def payment11():
+    return render_template('/Payment/payment-pc11.html')
+
+@app.route('/payment-12',methods=['POST','GET'])
+def payment12():
+    return render_template('/Payment/payment-pc12.html')
+
+
+
+
 @app.route('/account',methods=['POST','GET'])
 def account():
     cur = mysql.connection.cursor()
@@ -131,6 +182,8 @@ def terminal11():
 @app.route('/terminal12',methods=['POST','GET'])
 def terminal12():
     return render_template('/Terminal/terminal12.html')
+
+
 
 @app.route('/message',methods=['POST','GET'])
 def message():
