@@ -153,4 +153,3 @@ cython_debug/
 
 ICS/
 *.db
-converter.py
