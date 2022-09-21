@@ -304,20 +304,34 @@
         text-align: center;
     }
 
-    .message-input {
+    .message-recipient {
         display: block;
         margin: auto;
-        margin-top: 30px;
-        margin-bottom: 20px;
-        width: 250px;
+        margin-top: 10px;
+        width: 250px;       
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         color: #222831;
         line-height: 20px;
     }
 
+    .message-input {
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        width: 250px;
+        height: 400px;       
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #222831;
+        line-height: 100px;
+    }
+
     .message-save {
-        margin: relative;
+        display: inside;
+        margin: auto;
+        margin-top: 5px;
+        margin-left: 179px;
         width: 100px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
@@ -347,8 +361,7 @@
     .reports-input {
         display: block;
         margin: auto;
-        margin-top: 30px;
-        margin-bottom: 20px;
+        margin-top: 10px;
         width: 250px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
@@ -357,7 +370,10 @@
     }
     
     .reports-save {
-        margin: relative;
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        margin-left: 179px;
         width: 100px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
