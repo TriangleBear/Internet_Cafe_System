@@ -27,47 +27,45 @@
             <!-- Modules -->
             <div class="box box1">
                 <div class="nested">
-                    <div >
+                    <div>
                         <br />
                         <img src="/static/images/home.png" width=15 length=15 />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Home/home.html">
+                        <a href="{{ url_for('home') }}">
                         Home
                         </a>
                     </div>
-                    <!-- This is the Highlighted Page -->
                     <div class="current">
                         <br />
                         <img src="/static/images/account.png" width=15 length=15 />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/account.html">
+                        <a href="{{ url_for('account') }}">
                         Account
                         </a>
                     </div>
-                    <!-- -->
                     <div>
                         <br />
                         <img src="/static/images/terminal.png" width=15 length=15 />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Terminal/terminal.html">
+                        <a href="{{ url_for('terminal') }}">
                         Terminal
                         </a>
                     </div>
                     <div>
                         <br />
                         <img src="/static/images/payment.png" width=15 length=15 />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Payment/payment.html">
+                        <a href="{{ url_for('payment') }}">
                         Payment
                         </a>
                     </div>
-                    <div>
+                    <div >
                         <br />
                         <img src="/static/images/message.png" width=15 length=15 />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Message/message.html">
+                        <a href="{{ url_for('message') }}">
                         Message
                         </a>
                     </div>
                     <div>
                         <br />
                         <img src="/static/images/reports.png" width=15 length=15 />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Reports/reports.html">
+                        <a href="{{ url_for('report') }}">
                         Reports
                         </a>
                     </div>
@@ -80,31 +78,25 @@
 
                 <div class="account-submit">
                     <h1>ACCOUNT RECHARGE</h1>
-                    <form action="/submit" method="POST">
+                    <form action="/submit-recharge" method="POST">
                         <label>
-                            <input class="account-input" type="text" name="contact" placeholder="&nbsp;Contact ID:">
+                            <input class="account-input" type="text" name="name" id="username" placeholder="&nbsp;Name:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="user" placeholder="&nbsp;User ID:">
+                            <input class="account-input" type="text" name="mobile" id="number" placeholder="&nbsp;Mobile No.:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
+                            <input class="account-input" type="text" name="e-mail" id="email" placeholder="&nbsp;E-mail:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
+                            <input class="account-input" type="text" name="address" id="address" placeholder="&nbsp;Address:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="balance" placeholder="&nbsp;Balance:">
+                            <input class="account-input" type="text" name="balance" id="balance" placeholder="&nbsp;Balance:">
                         </label>
                         <br />
                         <label>
-                            <input class="account-input" type="text" name="recharge" placeholder="&nbsp;Recharge Amount:">
+                            <input class="account-input" type="text" name="recharge" id="balance" placeholder="&nbsp;Recharge Amount:">
                         </label>
                         <label>
                             <input class="account-confirm" type="submit" value="Recharge">
@@ -146,7 +138,7 @@
                     </div>
                     <div class="accountcurrent">
                         <br />
-                        <a href="{{url_for('recharge-account')}}">
+                        <a href="{{url_for('recharge_account')}}">
                         Account Recharge
                         </a>
                     </div>
@@ -155,8 +147,6 @@
 
                 <table class="table">
                     <tr>
-                        <th>Contact ID</th>
-                        <th>User ID</th>
                         <th>Name</th>
                         <th>Mobile No.</th>
                         <th>E-mail</th>
@@ -167,13 +157,11 @@
                     &nbsp;&nbsp;
                     {%for item in user%}
                     <tr>
-                        <td>{{data['contact']}}</td>
-                        <td>{{data['user']}}</td>
-                        <td>{{data['name']}}</td>
-                        <td>{{data['mobile']}}</td>
-                        <td>{{data['email']}}</td>
-                        <td>{{data['address']}}</td>
-                        <td>{{data['balance']}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[6]}}</td>
+                        <td>{{item[7]}}</td>
+                        <td>{{item[8]}}</td>
+                        <td>{{item[12]}}</td>
                     </tr>
                     {%endfor%}
                 </table>

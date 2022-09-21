@@ -102,31 +102,33 @@
 
                     <div>
                         <br />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_new.html">
+                        <a href="{{url_for('new_account')}}">
                         Create New Account
                         </a>
                     </div>
                     <div>
                         <br />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_edit.html">
+                        <a href="{{url_for('edit_account')}}">
                         Edit Account
                         </a>
                     </div>
+                    <!-- This is the Highlighted Page -->
                     <div>
                         <br />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_disable.html">
+                        <a href="{{url_for('disable_account')}}">
                         Disable Account
                         </a>
                     </div>
+                    <!-- -->
                     <div>
                         <br />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_history.html">
+                        <a href="{{url_for('history_account')}}">
                         Account History
                         </a>
                     </div>
-                    <div>
+                    <div class="accountcurrent">
                         <br />
-                        <a href="file:///C:/Users/ryanp/Documents/GitHub/Internet_Cafe_System/templates/Account/acc_recharge.html">
+                        <a href="{{url_for('recharge_account')}}">
                         Account Recharge
                         </a>
                     </div>
@@ -134,8 +136,6 @@
 
                 <table class="table">
                     <tr>
-                        <th>Contact ID</th>
-                        <th>User ID</th>
                         <th>Name</th>
                         <th>Mobile No.</th>
                         <th>E-mail</th>
@@ -146,13 +146,11 @@
                     &nbsp;&nbsp;
                     {%for item in user%}
                     <tr>
-                        <td>{{data['contact']}}</td>
-                        <td>{{data['user']}}</td>
-                        <td>{{data['name']}}</td>
-                        <td>{{data['mobile']}}</td>
-                        <td>{{data['email']}}</td>
-                        <td>{{data['address']}}</td>
-                        <td>{{data['balance']}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[6]}}</td>
+                        <td>{{item[7]}}</td>
+                        <td>{{item[8]}}</td>
+                        <td>{{item[12]}}</td>
                     </tr>
                     {%endfor%}
                 </table>

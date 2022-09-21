@@ -27,14 +27,14 @@
             <!-- Modules -->
             <div class="box box1">
                 <div class="nested">
-                    <div class="current">
+                    <div>
                         <br />
                         <img src="/static/images/home.png" width=15 length=15 />
                         <a href="{{ url_for('home') }}">
                         Home
                         </a>
                     </div>
-                    <div>
+                    <div class="current">
                         <br />
                         <img src="/static/images/account.png" width=15 length=15 />
                         <a href="{{ url_for('account') }}">
@@ -79,12 +79,6 @@
                 <div class="account-submit">
                     <h1>NEW ACCOUNT</h1>
                     <form action="/submit" method="POST">
-                        <label>
-                            <input class="account-input" type="text" name="contact" placeholder="&nbsp;Contact ID:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="user" placeholder="&nbsp;User ID:">
-                        </label>
                         <label>
                             <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
                         </label>
@@ -140,7 +134,7 @@
                     </div>
                     <div>
                         <br />
-                        <a href="{{url_for('recharge-account')}}">
+                        <a href="{{url_for('recharge_account')}}">
                         Account Recharge
                         </a>
                     </div>
@@ -148,8 +142,6 @@
 
                 <table class="table">
                     <tr>
-                        <th>Contact ID</th>
-                        <th>User ID</th>
                         <th>Name</th>
                         <th>Mobile No.</th>
                         <th>E-mail</th>
@@ -160,13 +152,11 @@
                     &nbsp;&nbsp;
                     {%for item in user%}
                     <tr>
-                        <td>{{data['contact']}}</td>
-                        <td>{{data['user']}}</td>
-                        <td>{{data['name']}}</td>
-                        <td>{{data['mobile']}}</td>
-                        <td>{{data['email']}}</td>
-                        <td>{{data['address']}}</td>
-                        <td>{{data['balance']}}</td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[6]}}</td>
+                        <td>{{item[7]}}</td>
+                        <td>{{item[8]}}</td>
+                        <td>{{item[12]}}</td>
                     </tr>
                     {%endfor%}
                 </table>
