@@ -219,6 +219,10 @@ def terminal1():
 
 
 @app.route('/message',methods=['POST','GET'])
+def message():
+    return render_template('/Message/message.html')
+
+@app.route('/message1',methods=['POST','GET'])
 def message1():
     return render_template('/Message/message-pc1.html')
 
