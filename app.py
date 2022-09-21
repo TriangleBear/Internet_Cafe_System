@@ -50,52 +50,6 @@ def payment():
 def payment1():
     return render_template('/Payment/payment-pc1.html')
 
-@app.route('/payment-2',methods=['POST','GET'])
-def payment2():
-    return render_template('/Payment/payment-pc2.html')
-
-@app.route('/payment-3',methods=['POST','GET'])
-def payment3():
-    return render_template('/Payment/payment-pc3.html')
-
-@app.route('/payment-4',methods=['POST','GET'])
-def payment4():
-    return render_template('/Payment/payment-pc4.html')
-
-@app.route('/payment-5',methods=['POST','GET'])
-def payment5():
-    return render_template('/Payment/payment-pc5.html')
-
-@app.route('/payment-6',methods=['POST','GET'])
-def payment6():
-    return render_template('/Payment/payment-pc6.html')
-
-@app.route('/payment-7',methods=['POST','GET'])
-def payment7():
-    return render_template('/Payment/payment-pc7.html')
-
-@app.route('/payment-8',methods=['POST','GET'])
-def payment8():
-    return render_template('/Payment/payment-pc8.html')
-
-@app.route('/payment-9',methods=['POST','GET'])
-def payment9():
-    return render_template('/Payment/payment-pc9.html')
-
-@app.route('/payment-10',methods=['POST','GET'])
-def payment10():
-    return render_template('/Payment/payment-pc10.html')
-
-@app.route('/payment-11',methods=['POST','GET'])
-def payment11():
-    return render_template('/Payment/payment-pc11.html')
-
-@app.route('/payment-12',methods=['POST','GET'])
-def payment12():
-    return render_template('/Payment/payment-pc12.html')
-
-
-
 
 @app.route('/account',methods=['POST','GET'])
 def account():
@@ -111,6 +65,83 @@ def account():
     print(ucp)
     cur.close()
     return render_template('/Account/account.html', user = ucp)
+
+@app.route('/new-account',methods=['POST','GET'])
+def new_account():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Account/acc_new.html', user = ucp)
+
+@app.route('/edit-account',methods=['POST','GET'])
+def edit_account():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Account/acc_edit.html', user = ucp)
+
+@app.route('/recharge-account',methods=['POST','GET'])
+def recharge_account():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Account/acc_recharge.html', user = ucp)
+
+@app.route('/history-account',methods=['POST','GET'])
+def history_account():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Account/acc_history.html', user = ucp)
+
+@app.route('/disable-account',methods=['POST','GET'])
+def disable_account():
+    cur = mysql.connection.cursor()
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
+    return render_template('/Account/acc_disable.html', user = ucp)
+
+
 
 @app.route('/report',methods=['POST','GET'])
 def report():
@@ -166,50 +197,6 @@ def submit_terminal():
 @app.route('/terminal1',methods=['POST','GET'])
 def terminal1():
     return render_template('/Terminal/terminal-pc1.html')
-
-@app.route('/terminal2',methods=['POST','GET'])
-def terminal2():
-    return render_template('/Terminal/terminal-pc2.html')
-
-@app.route('/terminal3',methods=['POST','GET'])
-def terminal3():
-    return render_template('/Terminal/terminal-pc3.html')
-
-@app.route('/terminal4',methods=['POST','GET'])
-def terminal4():
-    return render_template('/Terminal/terminal-pc4.html')
-
-@app.route('/terminal5',methods=['POST','GET'])
-def terminal5():
-    return render_template('/Terminal/terminal-pc5.html')
-
-@app.route('/terminal6',methods=['POST','GET'])
-def terminal6():
-    return render_template('/Terminal/terminal-pc6.html')
-
-@app.route('/terminal7',methods=['POST','GET'])
-def terminal7():
-    return render_template('/Terminal/terminal-pc7.html')
-
-@app.route('/terminal8',methods=['POST','GET'])
-def terminal8():
-    return render_template('/Terminal/terminal-pc8.html')
-
-@app.route('/terminal9',methods=['POST','GET'])
-def terminal9():
-    return render_template('/Terminal/terminal-pc9.html')
-
-@app.route('/terminal10',methods=['POST','GET'])
-def terminal10():
-    return render_template('/Terminal/terminal-pc10.html')
-
-@app.route('/terminal11',methods=['POST','GET'])
-def terminal11():
-    return render_template('/Terminal/terminal-pc11.html')
-
-@app.route('/terminal12',methods=['POST','GET'])
-def terminal12():
-    return render_template('/Terminal/terminal12.html')
 
 
 
