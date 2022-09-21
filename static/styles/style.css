@@ -207,9 +207,16 @@
         display: block;
         margin: auto;
         margin-right: 205px;
-        margin-top: -10px;
+        margin-top: -20px;
         font-size: 30px;
         text-align: center;
+    }
+
+    .terminal-submit h3{
+        position: absolute;
+        font-size: 10px;
+        margin-top: 250px;
+        line-height: 10px;
     }
 
     .terminal-input {
@@ -225,14 +232,42 @@
 
     .terminal-actions {
         display: block;
+        margin: auto;
         margin-top: 10px;
-        margin-right: 500px;
-        width: 200px;
+        width: 150px;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         color: #222831;
         line-height: 10px;
     }
+
+         /* Details */
+         .details {
+            width: 278px;
+            margin: auto;
+            margin-top: 0px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #222831;
+            line-height: 20px;
+        }
+    
+            .details, th, td {
+                border: 1px solid #EEEEEE;
+                border-collapse: collapse;
+            }
+    
+            .details th, td {
+                padding: 10px;
+            }
+    
+            .details th:nth-child(n) {
+                background-color: #00ADB5;
+            }
+    
+            .details td:nth-child(n) {
+                background-color: #FFFFFF;
+            }
 
     /* Payment */
     .payment-submit {
@@ -412,50 +447,50 @@
             border-collapse: collapse;
         }
 
-        th, td {
+        .table th, td {
             padding: 10px;
         }
 
-        tr:nth-child(1) {
+        .table th:nth-child(n) {
             background-color: #00ADB5;
         }
 
-        tr:nth-child(2n) {
+        .table tr:nth-child(2n) {
             background-color: #FFFFFF;
         }
 
-        tr:nth-child(1+2n) {
+        .table tr:nth-child(2n+1) {
             background-color: #EEEEEE;
         }
 
-        /* System Unit */
-        .system-unit {
+    /* System Unit */
+    .system-unit {
             display: grid;
             padding: 20px;
             grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: auto;
             grid-gap: 50px;
-        }
+    }
     
-            .system-unit > div:nth-child(n) {
+        .system-unit > div:nth-child(n) {
                 text-align: center;
                 border: #393E46 1p solid;
                 font-family: 'Roboto', sans-serif;
                 font-size: 18px;
                 color: #222831;
                 line-height: 15px;
-            }
+        }
 
-            .current {
+        .current {
                 background-color: #FFFF8F;
-            }
+         }
 
-            .system-unit img:hover {
+        .system-unit img:hover {
                 filter: alpha(opacity=70);
                 opacity: .7;
-            }
+         }
 
-            .system-unit h1{
+        .system-unit h1{
                 display: block;
                 position: relative;   
                 font-size: 20px;
@@ -464,4 +499,4 @@
                 margin-left: -20px;
                 margin-right: 0px;
                 font-weight: bold;
-            }
+        }
