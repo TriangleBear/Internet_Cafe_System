@@ -87,7 +87,7 @@ def new_account():
                             %s
                         )
                         """,(username, mobile,email,address,))
-            mysql.connection.commit()
+            mydb.commit()
     cur.execute("""
                 SELECT user.username, contact.mobile_num, contact.email, contact.address
                 FROM user JOIN contact
@@ -147,7 +147,7 @@ def recharge_account_submit():
                             (SELECT rg_id FROM report_generator JOIN user ON user.user_id=report_generator.user_id WHERE user.username=%s),
                             %s
                         )""",(username,username, recharge))
-            mydb.commit
+            mydb.commit()
     cur.execute("""
                 SELECT user.username, payment.bill_num
                 FROM user JOIN payment
@@ -221,7 +221,7 @@ def terminal():
 
 @app.route('/submit-terminal',methods=['POST','GET'])
 def submit_terminal():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
                 SELECT user.username, contact.mobile_num, contact.email, contact.address
                 FROM user JOIN contact
