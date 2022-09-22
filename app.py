@@ -100,7 +100,6 @@ def new_account():
 
 @app.route('/edit-account',methods=['POST','GET'])
 def edit_account():
-    global 
     msg = ''    
     if 'loggedin' in session:
         editUserId = request.args.get('userid')
