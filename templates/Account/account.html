@@ -81,18 +81,6 @@
                 <div class="account-submit">
                     <h1>ACCOUNT MANAGER</h1>
 
-                    <h1>ACCOUNT</h1>
-                    <form action="/submit" method="POST">
-                        <label>
-                            <input class="account-input" type="text" name="from" id="from" placeholder="&nbsp;From:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="to" id="to" placeholder="&nbsp;To:">
-                        </label>
-                        <label>
-                            <input class="account-save" type="submit" value="Save File">
-                        </label>
-                    </form>
                 </div>
             </div>
 
@@ -112,21 +100,19 @@
                         Edit Account
                         </a>
                     </div>
-                    <!-- This is the Highlighted Page -->
                     <div>
                         <br />
                         <a href="{{url_for('disable_account')}}">
                         Disable Account
                         </a>
                     </div>
-                    <!-- -->
                     <div>
                         <br />
                         <a href="{{url_for('history_account')}}">
                         Account History
                         </a>
                     </div>
-                    <div class="accountcurrent">
+                    <div>
                         <br />
                         <a href="{{url_for('recharge_account')}}">
                         Account Recharge
@@ -142,15 +128,13 @@
                         <th>Address</th>
                         <th>Balance</th>
                     </tr>
-
-                    &nbsp;&nbsp;
-                    {%for item in user%}
+                    {%for item in data%}
                     <tr>
+                        <td>{{item[0]}}</td>
+                        <td>{{item[1]}}</td>
                         <td>{{item[2]}}</td>
-                        <td>{{item[6]}}</td>
-                        <td>{{item[7]}}</td>
-                        <td>{{item[8]}}</td>
-                        <td>{{item[12]}}</td>
+                        <td>{{item[3]}}</td>
+                        <td>test</td>
                     </tr>
                     {%endfor%}
                 </table>

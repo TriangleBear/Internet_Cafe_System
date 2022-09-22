@@ -92,9 +92,6 @@
                             <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="balance" placeholder="&nbsp;Balance:">
-                        </label>
-                        <label>
                             <input class="account-confirm" type="submit" value="Disable">
                         </label>
                         
@@ -146,17 +143,15 @@
                         <th>Mobile No.</th>
                         <th>E-mail</th>
                         <th>Address</th>
-                        <th>Balance</th>
                     </tr>
 
                     &nbsp;&nbsp;
                     {%for item in user%}
                     <tr>
+                        <td>{{item[0]}}</td>
                         <td>{{item[1]}}</td>
-                        <td>{{item[6]}}</td>
-                        <td>{{item[7]}}</td>
-                        <td>{{item[8]}}</td>
-                        <td>{{item[12]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
                     </tr>
                     {%endfor%}
                 </table>

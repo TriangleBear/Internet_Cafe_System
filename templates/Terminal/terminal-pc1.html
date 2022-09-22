@@ -83,43 +83,6 @@
                     <h1>TERMINAL</h1>
                     <form action="/submit-terminal" method="POST">
                         <h2>PC 1</h2>
-                        
-                        <table class="details">
-
-                            <tr>
-                                <th>User Account:</th>
-                                <th>Balance:</th>
-                                <th>Time IN:</th>
-                                <th>Time OUT:</th>
-                                <th>Duration:</th>
-                                <th>Total:</th>
-                            </tr>
-
-                            &nbsp;&nbsp;
-                            {%for data in user%}
-                            <tr>
-                                
-                                <td>{{data[1]}}</td>
-                           
-                           
-                                <td>{{data[7]}}</td>
-                            
-                           
-                                <td>{{data[15]}}</td>
-
-                            
-                                <td>{{data[16]}}</td>
-
-                            
-                                <td>{{data[10]}}</td>
-
-                         
-                                <td>test</td>
-                            </tr>
-                            {%endfor%}
-    
-                        </table>
-
 
                     <form action="/submit" method="POST">
                         

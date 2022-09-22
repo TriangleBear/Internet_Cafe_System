@@ -1,18 +1,13 @@
 from flask import Flask, render_template, flash, request, session, redirect, url_for
-from flask_mysqldb import MySQL
-
+import mysql.connector
 
 app = Flask(__name__)
-
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'internet_cafe_system'
-
-
-mysql = MySQL()
-mysql.init_app(app)
-
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="",
+  database="internet_cafe_system"
+)
 @app.route('/')
 def index():
     return redirect(url_for('login'),code=302)
@@ -20,7 +15,7 @@ def index():
 @app.route('/login',methods=['POST','GET'])
 def login():
     status=True
-    cur=mysql.connection.cursor()
+    cur=mydb.cursor()
     if request.method=='POST':
         username=request.form['username']
         password=request.form['password']
@@ -31,11 +26,9 @@ def login():
             session['logged_in']=True
             session['username']=data[1]
             print('Login Successful!')
-            mysql.connection.close()
             return redirect('home')
         else:
             print('username, password or user type invalid')
-    cur.close()
     return render_template("/Login/login.html")
 
 @app.route('/home',methods=['POST','GET'])
@@ -53,58 +46,78 @@ def payment1():
 
 @app.route('/account',methods=['POST','GET'])
 def account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
+                SELECT user.username, contact.mobile_num, contact.email, contact.address
+                FROM user JOIN contact
                 ON user.user_id = contact.user_id
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
                 """)
-    ucp = cur.fetchall()
-    print(ucp)
-    cur.close()
-    return render_template('/Account/account.html', user = ucp)
+    dataAcc = cur.fetchall()
+    print(dataAcc)
+    return render_template('/Account/account.html', data = dataAcc)
 
 @app.route('/new-account',methods=['POST','GET'])
 def new_account():
-    cur = mysql.connection.cursor()
+    msg=''
+    cur = mydb.cursor()
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        user_type = request.form['user_type']
+        mobile = request.form['mobile']
+        email = request.form['e-mail']
+        address = request.form['address']
+        if not username or not password:
+            msg='Please fill out the form!'
+        else:
+            cur.execute("""
+                        INSERT INTO user VALUES(
+                            NULL,
+                            %s,
+                            %s,
+                            %s
+                        )
+                        """,(username,password,user_type))
+            cur.execute("""
+                        INSERT INTO contact VALUES(
+                            NULL,
+                            (SELECT user_id from user WHERE username=%s),
+                            %s,
+                            %s,
+                            %s
+                        )
+                        """,(username, mobile,email,address,))
+            mydb.commit()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
+                SELECT user.username, contact.mobile_num, contact.email, contact.address
+                FROM user JOIN contact
                 ON user.user_id = contact.user_id
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
                 """)
-    ucp = cur.fetchall()
-    cur.close()
-    msg = ''
-    
-    return render_template('/Account/acc_new.html', user = ucp)
+    dataAcc = cur.fetchall()
+    print(dataAcc)
+    return render_template('/Account/acc_new.html', user=dataAcc)
+
 
 @app.route('/edit-account',methods=['POST','GET'])
 def edit_account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
+                SELECT user.username, contact.mobile_num, contact.email, contact.address
+                FROM user JOIN contact
                 ON user.user_id = contact.user_id
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
     cur.close()
     return render_template('/Account/acc_edit.html', user = ucp)
+        
 
 @app.route('/recharge-account',methods=['POST','GET'])
 def recharge_account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
-                ON user.user_id = contact.user_id
-                INNER JOIN payment
+                SELECT user.username, payment.bill_num
+                FROM user JOIN payment
                 ON user.user_id = payment.user_id
                 """)
     ucp = cur.fetchall()
@@ -114,30 +127,43 @@ def recharge_account():
 
 @app.route('/submit-recharge',methods=['POST','GET'])
 def recharge_account_submit():
-    cur=mysql.connection.cursor()
+    cur=mydb.cursor()
     if request.method =='POST':
         username=request.form['username']
-        rechargeAm=request.form['balance']
-        cur.execute("""
-                    SELECT SUM(balance + %i) 
-                    FROM payment
-                    GROUP BY user_id
-                    """,(rechargeAM))
-        ucp = cur.fetchall()
-        return render_template('/Account/acc_recharge.html', user = ucp)
+        recharge=request.form['balance']
+        if not username:
+            print('Account recognized')
+        else:
+            cur.execute("""INSERT INTO report_generator VALUES(
+                            NULL,
+                            (SELECT user_id from user WHERE username=%s),
+                            "Customer Recharge",
+                            "%s Credits added!"
+                            )""",(username, recharge,))
+            
+            cur.execute("""INSERT INTO payment VALUES(
+                            NULL,
+                            (SELECT user_id from user WHERE username=%s),
+                            (SELECT rg_id FROM report_generator JOIN user ON user.user_id=report_generator.user_id WHERE user.username=%s),
+                            %s
+                        )""",(username,username, recharge))
+            mydb.commit()
+    cur.execute("""
+                SELECT user.username, payment.bill_num
+                FROM user JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    rech = cur.fetchall()
+    return render_template('/Account/acc_recharge.html', user = rech)
 
 
 @app.route('/history-account',methods=['POST','GET'])
 def history_account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
-                ON user.user_id = contact.user_id
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
-                INNER JOIN timeslot
-                ON user.user_id = timeslot.user_id
+                SELECT user.username, report_generator.rg_desc, report_generator.rg_desc
+                FROM user JOIN report_generator
+                ON user.user_id = report_generator.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
@@ -146,13 +172,11 @@ def history_account():
 
 @app.route('/disable-account',methods=['POST','GET'])
 def disable_account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
+                SELECT user.username, contact.mobile_num, contact.email, contact.address
+                FROM user JOIN contact
                 ON user.user_id = contact.user_id
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
@@ -163,13 +187,11 @@ def disable_account():
 
 @app.route('/report',methods=['POST','GET'])
 def report():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
-                INNER JOIN timeslot
-                ON user.user_id = timeslot.user_id
+                SELECT user.username, contact.mobile_num, contact.email, contact.address
+                FROM user JOIN contact
+                ON user.user_id = contact.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
@@ -181,7 +203,7 @@ def report():
 def submit_report():
     fromData=request.form['from']
     toData=request.form['to']
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
                 SELECT * FROM timeslot
                 WHERE tmslt_in=%s AND
@@ -199,13 +221,11 @@ def terminal():
 
 @app.route('/submit-terminal',methods=['POST','GET'])
 def submit_terminal():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT * FROM user
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
-                INNER JOIN timeslot
-                ON user.user_id = timeslot.user_id
+                SELECT user.username, contact.mobile_num, contact.email, contact.address
+                FROM user JOIN contact
+                ON user.user_id = contact.user_id
                 """)
     terminaltime = cur.fetchall()
     print(terminaltime)
@@ -221,6 +241,10 @@ def terminal1():
 @app.route('/message',methods=['POST','GET'])
 def message():
     return render_template('/Message/message.html')
+
+@app.route('/message1',methods=['POST','GET'])
+def message1():
+    return render_template('/Message/message-pc1.html')
 
 
 

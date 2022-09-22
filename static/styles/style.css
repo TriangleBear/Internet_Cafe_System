@@ -398,15 +398,10 @@
     .message-submit h2 {
         display: block;
         margin: auto;
+        margin-right: 185px;
         margin-top: -20px;
-        margin-left: 21px;
         font-size: 30px;
-        text-align: left;
-        width: 250px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        color: #222831;
-        line-height: 20px;
+        text-align: center;
     }
 
     .message-save {
@@ -521,7 +516,7 @@
         }
 
         .table tr:nth-child(2n+1) {
-            background-color: #EEEEEE;
+            background-color: #F0FFFF;
         }
 
     /* System Unit */

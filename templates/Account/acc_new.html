@@ -78,9 +78,18 @@
 
                 <div class="account-submit">
                     <h1>NEW ACCOUNT</h1>
-                    <form action="/submit" method="POST">
+                    <form action="/new-account" method="POST">
                         <label>
-                            <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
+                            <input class="account-input" type="text" name="username" placeholder="&nbsp;Name:">
+                        </label>
+                        <label >
+                            <input class="account-input" type="password" name="password" placeholder="&nbsp;Password">
+                        </label>
+                        <label >
+                            <select class="account-input" name="user_type" id="user_type">
+                                <option value="customer">Customer</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </label>
                         <label>
                             <input class="account-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
@@ -89,15 +98,12 @@
                             <input class="account-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="balance" placeholder="&nbsp;Balance:">
+                            <input class="account-input" type="text" name="address"  placeholder="&nbsp;Address:">
                         </label>
                         <label>
                             <input class="account-confirm" type="submit" value="Create">
                         </label>
-                        
+                        <label >{{msg}}</label>
                     </form>
                 </div>
             </div>
@@ -146,17 +152,15 @@
                         <th>Mobile No.</th>
                         <th>E-mail</th>
                         <th>Address</th>
-                        <th>Balance</th>
                     </tr>
 
                     &nbsp;&nbsp;
-                    {%for item in user%}
+                    {%for data in user%}
                     <tr>
-                        <td>{{item[1]}}</td>
-                        <td>{{item[6]}}</td>
-                        <td>{{item[7]}}</td>
-                        <td>{{item[8]}}</td>
-                        <td>{{item[12]}}</td>
+                        <td>{{data[0]}}</td>
+                        <td>{{data[1]}}</td>
+                        <td>{{data[2]}}</td>
+                        <td>{{data[3]}}</td>
                     </tr>
                     {%endfor%}
                 </table>

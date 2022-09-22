@@ -78,26 +78,6 @@
 
                 <div class="account-submit">
                     <h1>ACCOUNT HISTORY</h1>
-                        <label>
-                            <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="balance" placeholder="&nbsp;Balance:">
-                        </label>
-                        <label>
-                            <input class="account-confirm" type="submit" value="Save File">
-                        </label>
-                        
-                    </form>
                 </div>
             </div>
 
@@ -142,18 +122,16 @@
                 <table class="table">
                     <tr>
                         <th>Name</th>
-                        <th>Date</th>
-                        <th>Bill</th>
-                        <th>Balance</th>
+                        <th>Report Details</th>
+                        <th>Report Type</th>
                     </tr>
 
                     &nbsp;&nbsp;
                     {%for item in user%}
                     <tr>
+                        <td>{{item[0]}}</td>
                         <td>{{item[1]}}</td>
-                        <td>{{item[19]}}</td>
-                        <td>test</td>
-                        <td>{{item[12]}}</td>
+                        <td>{{item[3]}}</td>
                     </tr>
                     {%endfor%}
                 </table>
