@@ -79,21 +79,34 @@
                 <div class="account-submit">
                     <h1>EDIT ACCOUNT</h1>
                     <form action="/edit-account" method="POST">
-                        <label>
-                            <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
-                        </label>
-                        <label>
-                            <input class="account-confirm" type="submit" value="Edit">
-                        </label>
+                        
+                        <div>
+                        <label></label>
+                            <input class="account-input" type="text" id="name" name="name" 
+                            placeholder="&nbsp;Name:" value="{{ name }}">
+                        </div>
+
+                        <div>
+                        <label></label>
+                            <input class="account-input" type="text" id="mobile" name="mobile" 
+                            placeholder="&nbsp;Mobile No.:" value="{{ mobile }}">
+                        </div>
+                        
+                        <div>
+                        <label></label>
+                            <input class="account-input" type="text" id="e-mail" name="e-mail" 
+                            placeholder="&nbsp;E-mail:" value="{{ email }}">
+                        </div>
+
+                        <div>
+                        <label></label>
+                            <input class="account-input" type="text" id="address" name="address" 
+                            placeholder="&nbsp;Address:" value="{{ address }}">
+                        </div>
+
+                        <input type="hidden" id="userid" name="userid" value="{{ userid }}">
+                        <button type="submit" class="account-confirm">Save</button>	
+
                         
                     </form>
                 </div>
