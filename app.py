@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, request, session, redirect, url_for
 from flask_mysqldb import MySQL
-import re
+import mysql.connector
 
 
 app = Flask(__name__)
@@ -69,6 +69,8 @@ def account():
 
 @app.route('/new-account',methods=['POST','GET'])
 def new_account():
+    msg=''
+    cur = mysql.connection.cursor()
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
@@ -76,18 +78,17 @@ def new_account():
         mobile = request.form['mobile']
         email = request.form['e-mail']
         address = request.form['address']
-        cur = mysql.connection.cursor()
         cur.execute("""
                 SELECT * FROM user
                 WHERE username = %s
                 """, (username,))
         ucp = cur.fetchone()
         if ucp:
-            print('Account already exists!')
+            mSG='Account already exists!'
         elif not re.match(r'[A-Za-z0-9]+', username):
-            print('Username must contain only character ad number!')
+            msg='Username must contain only character ad number!'
         elif not username or not password:
-            print('Please fill out the form!')
+            msg='Please fill out the form!'
         else:
             cur.execute("""
                         INSERT INTO user VALUES(
@@ -101,22 +102,26 @@ def new_account():
             cur.execute("""
                         INSERT INTO contact VALUES(
                             NULL,
-                            (SELECT u.username FROM user u JOIN contact c ON c.user_id = u.user_id AND u.username = %s),
+                            (SELECT user_id from user WHERE username=%s),
                             %s,
                             %s,
                             %s
                         )
                         """,(username, mobile,email,address,))
             mysql.connection.commit()
-            cur.close()
     elif request.method == 'POST':
         print('Please fill out the form')
-    return render_template('/Account/acc_new.html')
+    cur.execute("""
+                SELECT * FROM user
+                INNER JOIN contact
+                ON user.user_id = contact.user_id
+                INNER JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    return render_template('/Account/acc_new.html', user=ucp)
 
-@app.route('/submit-new-account',methods=['POST','GET'])
-def submit_new_account():
-    
-    return url_for('new_account')
 
 @app.route('/edit-account',methods=['POST','GET'])
 def edit_account():
