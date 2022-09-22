@@ -78,9 +78,18 @@
 
                 <div class="account-submit">
                     <h1>NEW ACCOUNT</h1>
-                    <form action="/submit" method="POST">
+                    <form action="/new-account" method="POST">
                         <label>
-                            <input class="account-input" type="text" name="name" placeholder="&nbsp;Name:">
+                            <input class="account-input" type="text" name="username" placeholder="&nbsp;Name:">
+                        </label>
+                        <label >
+                            <input class="account-input" type="password" name="password" placeholder="&nbsp;Password">
+                        </label>
+                        <label >
+                            <select class="account-input" name="user_type" id="user_type">
+                                <option value="customer">Customer</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </label>
                         <label>
                             <input class="account-input" type="text" name="mobile" placeholder="&nbsp;Mobile No.:">
@@ -89,7 +98,7 @@
                             <input class="account-input" type="text" name="e-mail" placeholder="&nbsp;E-mail:">
                         </label>
                         <label>
-                            <input class="account-input" type="text" name="address" placeholder="&nbsp;Address:">
+                            <input class="account-input" type="text" name="address"  placeholder="&nbsp;Address:">
                         </label>
                         <label>
                             <input class="account-input" type="text" name="balance" placeholder="&nbsp;Balance:">
