@@ -106,7 +106,7 @@
                         <label>
                             <input class="account-confirm" type="submit" value="Create">
                         </label>
-                        
+                        <label >{{msg}}</label>
                     </form>
                 </div>
             </div>
@@ -159,13 +159,13 @@
                     </tr>
 
                     &nbsp;&nbsp;
-                    {%for item in user%}
+                    {%for data in user%}
                     <tr>
-                        <td>{{item[1]}}</td>
-                        <td>{{item[6]}}</td>
-                        <td>{{item[7]}}</td>
-                        <td>{{item[8]}}</td>
-                        <td>{{item[12]}}</td>
+                        <td>{{data[1]}}</td>
+                        <td>{{data[6]}}</td>
+                        <td>{{data[7]}}</td>
+                        <td>{{data[8]}}</td>
+                        <td>{{data[12]}}</td>
                     </tr>
                     {%endfor%}
                 </table>
