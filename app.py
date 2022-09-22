@@ -100,16 +100,29 @@ def new_account():
 
 @app.route('/edit-account',methods=['POST','GET'])
 def edit_account():
-    cur = mydb.cursor()
-    cur.execute("""
-                SELECT user.username, contact.mobile_num, contact.email, contact.address
-                FROM user JOIN contact
-                ON user.user_id = contact.user_id
-                """)
-    ucp = cur.fetchall()
-    print(ucp)
-    cur.close()
-    return render_template('/Account/acc_edit.html', user = ucp)
+    global 
+    msg = ''    
+    if 'loggedin' in session:
+        editUserId = request.args.get('userid')
+        cur = mydb.cursor()
+        cur.execute(
+            'SELECT * FROM user WHERE userid = % s', (editUserId, ))
+        editUser = cursor.fetchone()
+        if request.method == 'POST' and 'userid' in request.form and 'name' in request.form and 'mobile' in request.form and 'email' in request.form and 'address' in request.form:
+            name = request.form['name']   
+            mobile = request.form['role']
+            email = request.form['country']            
+            address = request.form['userid']
+            if not re.match(r'[A-Za-z0-9]+', name):
+                msg = 'name must contain only characters and numbers !'
+            else:
+                cur.execute('UPDATE user SET  name =% s, mobile =% s, e-mail =%, address =% s WHERE userid =% s', (name, mobile, email, address, (userId, ), ))
+                mydb.commit()
+                msg = 'User updated !'
+        elif request.method == 'POST':
+            msg = 'Please fill out the form !'  
+    return render_template('/Account/acc_edit.html', msg = msg, editUser = editUser)
+
         
 
 @app.route('/recharge-account',methods=['POST','GET'])

@@ -83,28 +83,28 @@
                         <div>
                         <label for="name"></label>
                             <input class="account-input" type="text" id="name" name="name" 
-                            placeholder="&nbsp;Name:" value="{{ name }}">
+                            placeholder="&nbsp;Name:" value="{{ editUser.name }}">
                         </div>
 
                         <div>
                         <label for="mobile"></label>
                             <input class="account-input" type="text" id="mobile" name="mobile" 
-                            placeholder="&nbsp;Mobile No.:" value="{{ mobile }}">
+                            placeholder="&nbsp;Mobile No.:" value="{{ editUser.mobile }}">
                         </div>
                         
                         <div>
                         <label for="email"></label>
                             <input class="account-input" type="text" id="e-mail" name="e-mail" 
-                            placeholder="&nbsp;E-mail:" value="{{ email }}">
+                            placeholder="&nbsp;E-mail:" value="{{ editUser.e-mail }}">
                         </div>
 
                         <div>
                         <label for="address"></label>
                             <input class="account-input" type="text" id="address" name="address" 
-                            placeholder="&nbsp;Address:" value="{{ address }}">
+                            placeholder="&nbsp;Address:" value="{{ editUser.address }}">
                         </div>
 
-                        <input type="hidden" id="userid" name="userid" value="{{ userid }}">
+                        <input type="hidden" id="userid" name="userid" value="{{ editUser.userid }}">
                         <button type="submit" class="account-confirm">Save</button>	
 
                         
