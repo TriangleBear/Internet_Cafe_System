@@ -170,7 +170,7 @@ def history_account():
     cur.close()
     return render_template('/Account/acc_history.html', user = ucp)
 
-@app.route('/disable-account',methods=['POST','GET'])
+@app.route('/disable-account/',methods=['POST','GET'])
 def disable_account():
     cur = mydb.cursor()
     cur.execute("""
@@ -189,9 +189,7 @@ def disable_account():
 def report():
     cur = mydb.cursor()
     cur.execute("""
-                SELECT user.username, contact.mobile_num, contact.email, contact.address
-                FROM user JOIN contact
-                ON user.user_id = contact.user_id
+                SELECT uusername FROM user 
                 """)
     ucp = cur.fetchall()
     print(ucp)
