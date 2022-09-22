@@ -80,23 +80,11 @@
                     <h1>ACCOUNT RECHARGE</h1>
                     <form action="/submit-recharge" method="POST">
                         <label>
-                            <input class="account-input" type="text" name="name" id="username" placeholder="&nbsp;Name:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="mobile" id="number" placeholder="&nbsp;Mobile No.:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="e-mail" id="email" placeholder="&nbsp;E-mail:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="address" id="address" placeholder="&nbsp;Address:">
-                        </label>
-                        <label>
-                            <input class="account-input" type="text" name="balance" id="balance" placeholder="&nbsp;Balance:">
+                            <input class="account-input" type="text" name="username" id="username" placeholder="&nbsp;Name:">
                         </label>
                         <br />
                         <label>
-                            <input class="account-input" type="text" name="recharge" id="balance" placeholder="&nbsp;Recharge Amount:">
+                            <input class="account-input" type="text" name="balance" id="balance" placeholder="&nbsp;How Much Credits?">
                         </label>
                         <label>
                             <input class="account-confirm" type="submit" value="Recharge">
@@ -148,19 +136,14 @@
                 <table class="table">
                     <tr>
                         <th>Name</th>
-                        <th>Mobile No.</th>
-                        <th>E-mail</th>
-                        <th>Address</th>
+                        <th>Balance</th>
                     </tr>
 
                     &nbsp;&nbsp;
                     {%for item in user%}
                     <tr>
-                        <td>{{item[]}}</td>
-                        <td>{{item[]}}</td>
-                        <td>{{item[]}}</td>
-                        <td>{{item[]}}</td>
-                        <td>{{item[]}}</td>
+                        <td>{{item[0]}}</td>
+                        <td>{{item[1]}}</td>
                     </tr>
                     {%endfor%}
                 </table>
