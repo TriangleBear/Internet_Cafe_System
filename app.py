@@ -67,9 +67,7 @@ def new_account():
         mobile = request.form['mobile']
         email = request.form['e-mail']
         address = request.form['address']
-        if ucp:
-            mSG='Account already exists!'
-        elif not username or not password:
+        if not username or not password:
             msg='Please fill out the form!'
         else:
             cur.execute("""
@@ -102,22 +100,6 @@ def new_account():
 
 @app.route('/edit-account',methods=['POST','GET'])
 def edit_account():
-    if request.method == 'POST':
-        cur = mysql.connection.cursor()
-        cur.execute("""
-                SELECT * FROM user
-                INNER JOIN contact
-                ON user.user_id = contact.user_id
-                INNER JOIN payment
-                ON user.user_id = payment.user_id
-                """)
-        ucp = cur.fetchall()
-        print(ucp)
-        cur.close()
-        return render_template('/Account/acc_edit.html', user = ucp)
-
-@app.route('/recharge-account',methods=['POST','GET'])
-def recharge_account():
     cur = mydb.cursor()
     cur.execute("""
                 SELECT user.username, contact.mobile_num, contact.email, contact.address
@@ -127,30 +109,61 @@ def recharge_account():
     ucp = cur.fetchall()
     print(ucp)
     cur.close()
+    return render_template('/Account/acc_edit.html', user = ucp)
+        
+
+@app.route('/recharge-account',methods=['POST','GET'])
+def recharge_account():
+    cur = mydb.cursor()
+    cur.execute("""
+                SELECT user.username, payment.bill_num
+                FROM user JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    ucp = cur.fetchall()
+    print(ucp)
+    cur.close()
     return render_template('/Account/acc_recharge.html', user = ucp)
 
 @app.route('/submit-recharge',methods=['POST','GET'])
 def recharge_account_submit():
-    cur=mysql.connection.cursor()
+    cur=mydb.cursor()
     if request.method =='POST':
         username=request.form['username']
-        rechargeAm=request.form['balance']
-        cur.execute("""
-                    SELECT SUM(balance + %i) 
-                    FROM payment
-                    GROUP BY user_id
-                    """,(rechargeAM))
-        ucp = cur.fetchall()
-        return render_template('/Account/acc_recharge.html', user = ucp)
+        recharge=request.form['balance']
+        if not username:
+            print('Account recognized')
+        else:
+            cur.execute("""INSERT INTO report_generator VALUES(
+                            NULL,
+                            (SELECT user_id from user WHERE username=%s),
+                            "Customer Recharge",
+                            "%s Credits added!"
+                            )""",(username, recharge,))
+            
+            cur.execute("""INSERT INTO payment VALUES(
+                            NULL,
+                            (SELECT user_id from user WHERE username=%s),
+                            (SELECT rg_id FROM report_generator JOIN user ON user.user_id=report_generator.user_id WHERE user.username=%s),
+                            %s
+                        )""",(username,username, recharge))
+            mydb.commit
+    cur.execute("""
+                SELECT user.username, payment.bill_num
+                FROM user JOIN payment
+                ON user.user_id = payment.user_id
+                """)
+    rech = cur.fetchall()
+    return render_template('/Account/acc_recharge.html', user = rech)
 
 
 @app.route('/history-account',methods=['POST','GET'])
 def history_account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
-                SELECT user.username, contact.mobile_num, contact.email, contact.address
-                FROM user JOIN contact
-                ON user.user_id = contact.user_id
+                SELECT user.username, report_generator.rg_desc, report_generator.rg_desc
+                FROM user JOIN report_generator
+                ON user.user_id = report_generator.user_id
                 """)
     ucp = cur.fetchall()
     print(ucp)
@@ -159,7 +172,7 @@ def history_account():
 
 @app.route('/disable-account',methods=['POST','GET'])
 def disable_account():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
                 SELECT user.username, contact.mobile_num, contact.email, contact.address
                 FROM user JOIN contact
@@ -174,7 +187,7 @@ def disable_account():
 
 @app.route('/report',methods=['POST','GET'])
 def report():
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
                 SELECT user.username, contact.mobile_num, contact.email, contact.address
                 FROM user JOIN contact
@@ -190,7 +203,7 @@ def report():
 def submit_report():
     fromData=request.form['from']
     toData=request.form['to']
-    cur = mysql.connection.cursor()
+    cur = mydb.cursor()
     cur.execute("""
                 SELECT * FROM timeslot
                 WHERE tmslt_in=%s AND
