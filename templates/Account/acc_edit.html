@@ -78,37 +78,39 @@
 
                 <div class="account-submit">
                     <h1>EDIT ACCOUNT</h1>
+                    {%for data in userID%}
                     <form action="/edit-account" method="POST">
                         
                         <div>
                         <label for="name"></label>
-                            <input class="account-input" type="text" id="name" name="name" 
-                            placeholder="&nbsp;Name:" value="{{ editUser.name }}">
+                            <input class="account-input" type="text" id="username" name="username" 
+                            placeholder="&nbsp;Name:" value="{{ data[0] }}">
                         </div>
 
                         <div>
                         <label for="mobile"></label>
-                            <input class="account-input" type="text" id="mobile" name="mobile" 
-                            placeholder="&nbsp;Mobile No.:" value="{{ editUser.mobile }}">
+                            <input class="account-input" type="text" id="mobile_num" name="mobile_num" 
+                            placeholder="&nbsp;Mobile No.:" value="{{ data[1] }}">
                         </div>
                         
                         <div>
                         <label for="email"></label>
-                            <input class="account-input" type="text" id="e-mail" name="e-mail" 
-                            placeholder="&nbsp;E-mail:" value="{{ editUser.e-mail }}">
+                            <input class="account-input" type="text" id="email" name="email" 
+                            placeholder="&nbsp;E-mail:" value="{{data[2]}}">
                         </div>
 
                         <div>
                         <label for="address"></label>
                             <input class="account-input" type="text" id="address" name="address" 
-                            placeholder="&nbsp;Address:" value="{{ editUser.address }}">
+                            placeholder="&nbsp;Address:" value="{{data[3]}}">
                         </div>
 
-                        <input type="hidden" id="userid" name="userid" value="{{ editUser.userid }}">
+                        <input type="hidden" id="user_id" name="user_id" value="{{ userID.user_id }}">
                         <button type="submit" class="account-confirm">Save</button>	
 
                         
                     </form>
+                    {%endfor%}
                 </div>
             </div>
 

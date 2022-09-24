@@ -100,27 +100,32 @@ def new_account():
 
 @app.route('/edit-account',methods=['POST','GET'])
 def edit_account():
-    msg = ''    
-    if 'loggedin' in session:
-        editUserId = request.args.get('userid')
-        cur = mydb.cursor()
-        cur.execute(
-            'SELECT * FROM user WHERE userid = % s', (editUserId, ))
-        editUser = cursor.fetchone()
-        if request.method == 'POST' and 'userid' in request.form and 'name' in request.form and 'mobile' in request.form and 'email' in request.form and 'address' in request.form:
-            name = request.form['name']   
-            mobile = request.form['role']
-            email = request.form['country']            
-            address = request.form['userid']
-            if not re.match(r'[A-Za-z0-9]+', name):
-                msg = 'name must contain only characters and numbers !'
-            else:
-                cur.execute('UPDATE user SET  name =% s, mobile =% s, e-mail =%, address =% s WHERE userid =% s', (name, mobile, email, address, (userId, ), ))
-                mydb.commit()
-                msg = 'User updated !'
-        elif request.method == 'POST':
-            msg = 'Please fill out the form !'  
-    return render_template('/Account/acc_edit.html', msg = msg, editUser = editUser)
+    cur = mydb.cursor()
+    if request.method == 'POST' and 'user_id' in request.form and 'username' in request.form and 'mobile_num' in request.form and 'email' in request.form and 'address' in request.form:
+        name = request.form['username']   
+        mobile = request.form['mobile_num']
+        email = request.form['email']            
+        address = request.form['address']
+        edi = request.form['user_id']
+        cur.execute("""SELECT user.username, contact.mobile_num, contact.email, contact.address
+                    FROM user JOIN contact ON user.user_id = contact.user_id
+                    WHERE user_id = % s""", (edI))
+        userID=cur.fetchone()
+        if not name:
+            print('name must contain only characters and numbers !')
+        else:
+            cur.execute("""UPDATE user 
+                        SET  
+                        username =% s, 
+                        mobile_num =%s, 
+                        email =%s, 
+                        address =%s 
+                        WHERE user_id =%s""", (name, mobile, email, address,edI ))
+            mydb.commit()
+            print('User updated !')
+    else:
+        print('Please fill out the form !')  
+    return render_template('/Account/acc_edit.html', user = userID)
 
         
 
