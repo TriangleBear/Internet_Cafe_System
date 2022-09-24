@@ -201,7 +201,7 @@ def disable_account():
 def report():
     cur = mydb.cursor()
     cur.execute("""
-                SELECT uusername FROM user 
+                SELECT username FROM user 
                 """)
     ucp = cur.fetchall()
     print(ucp)
