@@ -1,8 +1,12 @@
+from logging import WARNING, FileHandler
+import os
 from flask import Flask, render_template, flash, request, session, redirect, url_for
 from datetime import datetime
 import mysql.connector
 
 app = Flask(__name__)
+file_handler = FileHandler('errorlog.txt')
+file_handler.setLevel(WARNING)
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -31,7 +35,7 @@ def login():
             session['logged_in'] = True
             session['username'] = data[1]
             print('Login Successful!')
-            return redirect('home')
+            return redirect('/home')
         else:
             print('username, password or user type invalid')
     return render_template("/Login/login.html")
@@ -139,18 +143,6 @@ def new_account():
 @app.route('/edit-account', methods=['POST', 'GET'])
 def edit_account():
     cur = mydb.cursor()
-<<<<<<< Updated upstream
-    cur.execute("""
-                SELECT user.username, contact.mobile_num, contact.email, contact.address
-                FROM user JOIN contact
-                ON user.user_id = contact.user_id
-                """)
-    ucp = cur.fetchall()
-    print(ucp)
-    cur.close()
-    return render_template('/Account/acc_edit.html', user = ucp)
-        
-=======
     if request.method == 'POST' and 'user_id' in request.form and 'username' in request.form and 'mobile_num' in request.form and 'email' in request.form and 'address' in request.form:
         name = request.form['username']
         mobile = request.form['mobile_num']
@@ -175,10 +167,8 @@ def edit_account():
             print('User updated !')
             return render_template('/Account/acc_edit.html', user=userID)
     else:
-        print('Please fill out the form !')
+        print('Please fill out the form !')# Above is ignore for debug reason
     return render_template('/Account/acc_edit.html', user=userID) # type: ignore
-
->>>>>>> Stashed changes
 
 @app.route('/recharge-account', methods=['POST', 'GET'])
 def recharge_account():
@@ -239,12 +229,7 @@ def history_account():
     cur.close()
     return render_template('/Account/acc_history.html', user=ucp)
 
-<<<<<<< Updated upstream
-@app.route('/disable-account',methods=['POST','GET'])
-=======
-
 @app.route('/disable-account/', methods=['POST', 'GET'])
->>>>>>> Stashed changes
 def disable_account():
     cur = mydb.cursor()
     cur.execute("""
@@ -330,5 +315,6 @@ def logout():
 
 
 if __name__ == "__main__":
+    app.secret_key = os.urandom(24)
     app.config['SESSION_TYPE'] = 'filesystem'
     app.run(debug=True)
