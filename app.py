@@ -143,6 +143,7 @@ def new_account():
 @app.route('/edit-account', methods=['POST', 'GET'])
 def edit_account():
     cur = mydb.cursor()
+    userID = cur.fetchone()
     if request.method == 'POST' and 'user_id' in request.form and 'username' in request.form and 'mobile_num' in request.form and 'email' in request.form and 'address' in request.form:
         name = request.form['username']
         mobile = request.form['mobile_num']
@@ -152,7 +153,6 @@ def edit_account():
         cur.execute("""SELECT user.username, contact.mobile_num, contact.email, contact.address
                     FROM user JOIN contact ON user.user_id = contact.user_id
                     WHERE user_id = % s""", (edi))
-        userID = cur.fetchone()
         if not name:
             print('name must contain only characters and numbers !')
         else:
@@ -168,7 +168,7 @@ def edit_account():
             return render_template('/Account/acc_edit.html', user=userID)
     else:
         print('Please fill out the form !')# Above is ignore for debug reason
-    return render_template('/Account/acc_edit.html', user=userID) # type: ignore
+    return render_template('/Account/acc_edit.html', user=userID)
 
 @app.route('/recharge-account', methods=['POST', 'GET'])
 def recharge_account():
