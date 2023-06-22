@@ -98,36 +98,36 @@ def new_account():
     return render_template('/Account/acc_new.html', user=dataAcc)
 
 
-@app.route('/edit-account',methods=['POST','GET'])
+@app.route('/edit-account', methods=['POST', 'GET'])
 def edit_account():
     cur = mydb.cursor()
+    userID = None
     if request.method == 'POST' and 'user_id' in request.form and 'username' in request.form and 'mobile_num' in request.form and 'email' in request.form and 'address' in request.form:
-        name = request.form['username']   
+        name = request.form['username']
         mobile = request.form['mobile_num']
-        email = request.form['email']            
+        email = request.form['email']
         address = request.form['address']
-        edi = request.form['user_id']
+        edI = request.form['user_id']
         cur.execute("""SELECT user.username, contact.mobile_num, contact.email, contact.address
                     FROM user JOIN contact ON user.user_id = contact.user_id
-                    WHERE user_id = % s""", (edI))
-        userID=cur.fetchone()
+                    WHERE user_id = %s""", (edI,))
+        userID = cur.fetchone()
         if not name:
-            print('name must contain only characters and numbers !')
+            print('name must contain only characters and numbers!')
         else:
             cur.execute("""UPDATE user 
                         SET  
-                        username =% s, 
-                        mobile_num =%s, 
-                        email =%s, 
-                        address =%s 
-                        WHERE user_id =%s""", (name, mobile, email, address,edI ))
+                        username = %s, 
+                        mobile_num = %s, 
+                        email = %s, 
+                        address = %s 
+                        WHERE user_id = %s""", (name, mobile, email, address, edI))
             mydb.commit()
-            print('User updated !')
+            print('User updated!')
     else:
-        print('Please fill out the form !')  
-    return render_template('/Account/acc_edit.html', user = userID)
+        print('Please fill out the form!')
+    return render_template('/Account/acc_edit.html', user=userID)
 
-        
 
 @app.route('/recharge-account',methods=['POST','GET'])
 def recharge_account():
